@@ -79,7 +79,7 @@ public final class HeldKarpTsp implements TspSolver {
                 if (parents.contains(target)) { // target already visited
                     continue;
                 }
-                Path path = new Path(target, parents);
+                Path path = Path.of(target, parents);
                 if (parents.isEmpty()) { // parents is empty: direct path from starting vertex to target
                     minimumCosts.put(path, Pair.of(startingVertex, cost(target, startingVertex)));
                 } else { // reach target from starting point via parents
@@ -89,7 +89,7 @@ public final class HeldKarpTsp implements TspSolver {
         }
 
         Set<Integer> allWithoutStart = copyWithoutElement(graph.nodes(), startingVertex);
-        Path finalPath = new Path(startingVertex, allWithoutStart);
+        Path finalPath = Path.of(startingVertex, allWithoutStart);
         findMinimumCost(finalPath);
 
         return new TspPath(
@@ -123,12 +123,12 @@ public final class HeldKarpTsp implements TspSolver {
 
         Integer parent = minimumCosts.get(path).first;
         pathAccumulator.add(parent);
-        Path pathToParent = new Path(parent, copyWithoutElement(path.parents, parent));
+        Path pathToParent = Path.of(parent, copyWithoutElement(path.parents, parent));
         return reconstructPath(pathToParent, pathAccumulator);
     }
 
     private int lookUpCostTo(Integer vertex, Set<Integer> viaPath) {
-        return minimumCosts.get(new Path(vertex, viaPath)).second;
+        return minimumCosts.get(Path.of(vertex, viaPath)).second;
     }
 
     private Set<Integer> copyWithoutElement(Set<Integer> set, Integer exclude) {
