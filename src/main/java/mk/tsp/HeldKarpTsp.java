@@ -28,8 +28,9 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.graph.ImmutableValueGraph;
 import com.google.common.graph.ValueGraph;
-import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import mk.common.Pair;
 
 import java.util.*;
@@ -143,23 +144,19 @@ public final class HeldKarpTsp implements TspSolver {
     /**
      * An ancillary data structure for a path to a vertex reachable via a set of other vertices in unspecified order.
      */
-    @AllArgsConstructor
     @EqualsAndHashCode
+    @ToString
+    @Data(staticConstructor="of")
     private static class Path {
 
         /** Target vertex reached via the {@link #parents}. */
-        private Integer target;
+        private final Integer target;
 
         /**
          * The set of vertices which were visited during the path to the {@link #target} vertex. Note that it is not
          * specified in which order the vertices in the {@code parents} were visited.
          */
-        private Set<Integer> parents;
-
-        @Override
-        public String toString() {
-            return "target: " + target + "; parents: " + parents;
-        }
+        private final Set<Integer> parents;
 
     }
 

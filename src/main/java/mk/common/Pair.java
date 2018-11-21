@@ -24,35 +24,19 @@
 
 package mk.common;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * 2-tuple utility object. The elements of the 2-tuple might be {@code null}.
  */
 @EqualsAndHashCode
+@Data(staticConstructor="of")
+@ToString
 public final class Pair<P, K> {
 
     public final P first;
     public final K second;
-
-    private Pair(P first, K second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    /**
-     * Constructor for a Pair.
-     *
-     * @param first  the first object in the Pair
-     * @param second the second object in the pair
-     */
-    public static <P, K> Pair<P, K> of(P first, K second) {
-        return new Pair<P, K>(first, second);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Pair [%s, %s]", first, second);
-    }
 
 }
