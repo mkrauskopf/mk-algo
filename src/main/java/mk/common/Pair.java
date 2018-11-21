@@ -24,11 +24,12 @@
 
 package mk.common;
 
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
 /**
  * 2-tuple utility object. The elements of the 2-tuple might be {@code null}.
  */
+@EqualsAndHashCode
 public final class Pair<P, K> {
 
     public final P first;
@@ -47,20 +48,6 @@ public final class Pair<P, K> {
      */
     public static <P, K> Pair<P, K> of(P first, K second) {
         return new Pair<P, K>(first, second);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(first, second);
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Pair<?, ?> that = (Pair<?, ?>) o;
-        return Objects.equals(first, that.first) && Objects.equals(second, that.second);
     }
 
     @Override
