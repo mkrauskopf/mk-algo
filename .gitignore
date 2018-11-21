@@ -1,0 +1,9 @@
+# Project artefacts
+/target/
+
+# IDE metadata files
+/*.iml
+/.idea/
+
+# OS files
+.DS_Store
