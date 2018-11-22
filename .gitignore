@@ -1,9 +1,12 @@
 # Project artefacts
+/build/
 /target/
 
-# IDE metadata files
+# IDE and tools metadata files
 /*.iml
+/.gradle
 /.idea/
 
 # OS files
 .DS_Store
+

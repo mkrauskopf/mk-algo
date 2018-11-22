@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+description = "MK Data Structures and Algorithms"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:27.0-jre'
+    compile 'org.jgrapht:jgrapht-core:1.3.+'
+    compile 'org.projectlombok:lombok:1.+'
+
+    testCompile 'junit:junit:4.+'
+}
+
