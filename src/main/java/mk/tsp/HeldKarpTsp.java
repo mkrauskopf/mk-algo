@@ -92,7 +92,7 @@ public final class HeldKarpTsp implements TspSolver {
         Path finalPath = Path.of(startingVertex, allWithoutStart);
         findMinimumCost(finalPath);
 
-        return new TspPath(
+        return TspPath.of(
                 reconstructPath(finalPath, Lists.newArrayList(startingVertex)),
                 minimumCosts.get(finalPath).second);
     }

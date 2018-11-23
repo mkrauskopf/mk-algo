@@ -64,7 +64,7 @@ public final class NaiveTsp implements TspSolver {
         Stack<Integer> currentPath = new Stack<>();
         currentPath.push(startingVertex);
         findBestPath(startingVertex, 0, currentPath);
-        return new TspPath(bestPath, bestCost);
+        return TspPath.of(bestPath, bestCost);
     }
 
     private void findBestPath(int root, int pathCost, Stack<Integer> currentPath) {

@@ -43,7 +43,7 @@ abstract class TspTestBase {
         };
         TspSolver tsp = createTspSolver(TspTests.generateGraph(graph3), 0);
         TspPath path = tsp.findBestPath();
-        TspPath expectedPath = new TspPath(ImmutableList.of(0, 1, 2, 0), 10);
+        TspPath expectedPath = TspPath.of(ImmutableList.of(0, 1, 2, 0), 10);
         assertEquals("expected path", expectedPath, path);
     }
 
@@ -51,7 +51,7 @@ abstract class TspTestBase {
     public void findBestPathFromVertex0() {
         TspSolver tsp = createTspSolver(TspTests.generateRandomGraph(4, 42), 0);
         TspPath path = tsp.findBestPath();
-        TspPath expectedPath = new TspPath(ImmutableList.of(0, 1, 3, 2, 0), 12);
+        TspPath expectedPath = TspPath.of(ImmutableList.of(0, 1, 3, 2, 0), 12);
         assertEquals("expected path", expectedPath, path);
     }
 
@@ -59,7 +59,7 @@ abstract class TspTestBase {
     public void findBestPathFromLastVertex() {
         TspSolver tsp = createTspSolver(TspTests.generateRandomGraph(4, 42), 3);
         TspPath path = tsp.findBestPath();
-        TspPath expectedPath = new TspPath(ImmutableList.of(3, 1, 0, 2, 3), 12);
+        TspPath expectedPath = TspPath.of(ImmutableList.of(3, 1, 0, 2, 3), 12);
         assertEquals("expected path", expectedPath, path);
     }
 
@@ -67,7 +67,7 @@ abstract class TspTestBase {
     public void findBestPathFromLastVertexLarge() {
         TspSolver tsp = createTspSolver(TspTests.generateRandomGraph(11, 42), 3);
         TspPath path = tsp.findBestPath();
-        TspPath expectedPath = new TspPath(ImmutableList.of(3, 6, 7, 10, 2, 4, 8, 5, 0, 1, 9, 3), 27);
+        TspPath expectedPath = TspPath.of(ImmutableList.of(3, 6, 7, 10, 2, 4, 8, 5, 0, 1, 9, 3), 27);
         assertEquals("expected path", expectedPath, path);
     }
 

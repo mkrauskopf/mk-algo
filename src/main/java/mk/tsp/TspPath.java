@@ -24,50 +24,22 @@
 
 package mk.tsp;
 
-import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 import com.google.errorprone.annotations.Immutable;
-
-import java.util.Objects;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * Describes graph path and its cost.
  */
+@EqualsAndHashCode
+@Data(staticConstructor="of")
+@ToString
 @Immutable
 public final class TspPath {
 
     private final ImmutableList<Integer> path;
     private final int cost;
-
-    public TspPath(ImmutableList<Integer> path, int cost) {
-        this.path = path;
-        this.cost = cost;
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(TspPath.class)
-                .add("path", path)
-                .add("cost", cost)
-                .toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TspPath that = (TspPath) o;
-        return Objects.equals(cost, that.cost)
-                && Objects.equals(path, that.path);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cost, path);
-    }
 
 }
