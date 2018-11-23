@@ -1,5 +1,6 @@
 # Project artefacts
 /build/
+/out/
 /target/
 
 # IDE and tools metadata files
